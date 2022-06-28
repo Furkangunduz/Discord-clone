@@ -65,9 +65,6 @@ let joinStream = async () => {
     <div class="video_container" id="user-container-${uid}">
         <div class="video_player" id="user-${uid}"></div>
     </div > `
-
-
-
     document.getElementById("streams_container").insertAdjacentHTML("beforeend", player)
 
     // document.getElementById(`user-container-${uid}`).addEventListener('click', expandVideoFrame)

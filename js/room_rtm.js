@@ -11,7 +11,14 @@ const addMemberList = async (memberId) => {
         <img src="./image/User-img/Picture-1.svg" alt="">
         <h5>${name}</h5>
     </div`
-    document.getElementById("voice-channel-users").insertAdjacentHTML("beforeend", member)
+    let channelUserList = document.getElementById("voice-channel-users")
+    if (!channelUserList) {
+        channelUserList = document.createElement("div")
+        channelUserList.setAttribute("id", "voice-channel-users")
+        channelUserList.setAttribute("class", "voice-channel-users")
+        document.getElementById(`${roomId}`).appendChild(channelUserList)
+    }
+    channelUserList.insertAdjacentHTML("beforeend", member)
 
 }
 
