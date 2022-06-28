@@ -10,16 +10,12 @@ if (!uid) {
 
 let client;
 
-let cameraButton = document.getElementById("camera")
-let micButton = document.getElementById("microphone")
-let leaveButton = document.getElementById("leave")
-
 let rtmClient;
 let channel;
 
 //roomıd
-const queryString = window.location.search
-const urlParams = new URLSearchParams(queryString)
+let queryString = window.location.search
+let urlParams = new URLSearchParams(queryString)
 let roomId = urlParams.get("room");
 let userName = urlParams.get("username");
 
@@ -117,50 +113,7 @@ let handleUserLeft = async (user) => {
     //     }
     // }
 }
-let toggleCamera = async (e) => {
-    let button = e.currentTarget
 
-    if (localTracks[1].muted) {
-        await localTracks[1].setMuted(false)
-        button.classList.add("active")
-    } else {
-        await localTracks[1].setMuted(true)
-        button.classList.remove("active")
-    }
-}
-
-let toggleMic = async (e) => {
-    let button = e.currentTarget
-    if (localTracks[0].muted) {
-        await localTracks[0].setMuted(false)
-        button.classList.add("active")
-    } else {
-        await localTracks[0].setMuted(true)
-        button.classList.remove("active")
-    }
-}
-
-let leaveStream = async (e) => {
-    e.preventDefault()
-    for (let i = 0; localTracks.length > i; i++) {
-        localTracks[i].stop()
-        localTracks[i].close()
-    }
-    await client.unpublish([localTracks[0], localTracks[1]])
-
-    document.getElementById(`user-container-${uid}`).remove()
-
-    // if (userIdInDisplayFrame === `user-container-${uid}`) {
-    //     displayFrame.style.display = null
-
-    //     for (let i = 0; videoFrames.length > i; i++) {
-    //         videoFrames[i].style.height = '300px'
-    //         videoFrames[i].style.width = '300px'
-    //     }
-    // }
-
-    window.location = "lobby.html"
-}
 
 // cameraButton.addEventListener("click", toggleCamera)
 // micButton.addEventListener("click", toggleMic)

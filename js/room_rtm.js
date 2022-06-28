@@ -16,10 +16,14 @@ const addMemberList = async (memberId) => {
         channelUserList = document.createElement("div")
         channelUserList.setAttribute("id", "voice-channel-users")
         channelUserList.setAttribute("class", "voice-channel-users")
-        document.getElementById(`${roomId}`).appendChild(channelUserList)
+        insertAfter(channelUserList, document.getElementById(`${roomId}`))
     }
     channelUserList.insertAdjacentHTML("beforeend", member)
 
+}
+
+const insertAfter = (newNode, existingNode) => {
+    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
 }
 
 let getMembers = async () => {

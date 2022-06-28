@@ -751,26 +751,81 @@ body .page-container {
   background-color: #000;
   height: 100vh;
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  padding: 10% 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  padding: 5% 20px;
+  overflow-y: scroll;
 }
 
-.video-chat-container img {
-  border: 1px solid red;
-  width: 200px;
-  height: 200px;
+.video-chat-container::-webkit-scrollbar {
+  display: none;
 }
 
 .video_container {
-  height: 300px;
-  width: 320px;
+  height: 75%;
+  width: 30%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
 }
 
 .video_player {
   width: 100%;
   height: 100%;
+}
+
+.stream_actions {
+  position: fixed;
+  bottom: 1rem;
+  border-radius: 8px;
+  background-color: #1a1a1a60;
+  padding: 1rem;
+  left: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.stream_actions a,
+.stream_actions button {
+  cursor: pointer;
+  background-color: #262625;
+  color: #fff;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.stream_actions a svg,
+.stream_actions button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #ede0e0;
+}
+
+a:active, a:hover,
+button:active,
+button:hover {
+  background-color: #845695;
 }
 /*# sourceMappingURL=style.css.map */

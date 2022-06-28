@@ -1,8 +1,8 @@
 const voice_channels = document.querySelectorAll(".voice-channel");
 const coll = document.getElementsByClassName("server-category");
 
-const queryString = window.location.search
-const urlParams = new URLSearchParams(queryString)
+let queryString = window.location.search
+let urlParams = new URLSearchParams(queryString)
 let userName = urlParams.get("username");
 if (!userName) window.location = "lobby.html"
 
@@ -24,6 +24,7 @@ for (let i = 0; i < coll.length; i++) {
     }
   });
 }
+
 // let displayFrame = document.getElementById('stream_box')
 // let videoFrames = document.getElementsByClassName('video_container')
 // let userIdInDisplayFrame = null;
